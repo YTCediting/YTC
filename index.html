@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YTC EDITING SPACE | PRO EDITS</title>
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+    <style>
+        /* ===== GLOBALS ===== */
+        :root {
+            --neon-orange: #ff7f00;
+            --dark: #000000;
+            --scam-red: #ff0000;
+        }
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--dark);
+            color: white;
+            margin: 0;
+        }
+        /* ===== POP EFFECTS ===== */
+        a, button, .clickable {
+            transition: all 0.3s ease;
+        }
+        a:hover, button:hover, .clickable:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
+        /* ===== MAIN TITLE ===== */
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            text-align: center;
+            color: var(--neon-orange);
+            text-shadow: 0 0 10px var(--neon-orange);
+            margin: 1rem 0;
+            letter-spacing: 3px;
+            animation: titlePulse 2s infinite alternate;
+        }
+        @keyframes titlePulse {
+            from { text-shadow: 0 0 10px var(--neon-orange); }
+            to { text-shadow: 0 0 20px var(--neon-orange), 0 0 30px rgba(255,127,0,0.5); }
+        }
+        /* ===== NAVBAR ===== */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            background: rgba(0,0,0,0.9);
+            padding: 1.5rem;
+            border-bottom: 2px solid var(--neon-orange);
+        }
+        nav a {
+            color: var(--neon-orange);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--neon-orange);
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background: rgba(255,127,0,0.2);
+        }
+        /* ===== SECTIONS ===== */
+        .section-box {
+            background: rgba(0,0,0,0.8);
+            border: 1px solid var(--neon-orange);
+            border-radius: 10px;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .section-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255,127,0,0.1);
+        }
+        .section-title {
+            color: var(--neon-orange);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        /* ===== VIDEO CONTAINERS ===== */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border: 1px solid var(--neon-orange);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* ===== UPLOAD AREA ===== */
+        .upload-area {
+            border: 2px dashed var(--neon-orange);
+            border-radius: 10px;
+            padding: 3rem;
+            text-align: center;
+            margin: 1rem 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .upload-area:hover {
+            background: rgba(255,127,0,0.1);
+        }
+        /* ===== ADMIN PANEL ===== */
+        .admin-panel {
+            background: rgba(0,0,0,0.9);
+            border: 1px solid var(--neon-orange);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .login-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .login-form input {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            background: #111;
+            border: 1px solid var(--neon-orange);
+            color: white;
+            border-radius: 5px;
+        }
+        .login-form button {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--neon-orange);
+            color: black;
+            border: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        /* ===== YTC BOT ===== */
+        .ytc-bot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 70px;
+            height: 70px;
+            background: var(--neon-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 20px rgba(255,127,0,0.7);
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,127,0,0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255,127,0,0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,127,0,0); }
+        }
+        .bot-chat {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 300px;
+            background: rgba(0,0,0,0.9);
+            border: 1px solid var(--neon-orange);
+            border-radius: 10px;
+            padding: 1rem;
+            display: none;
+            z-index: 1000;
+        }
+        .bot-chat-messages {
+            height: 200px;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+        }
+        .bot-chat-input {
+            display: flex;
+        }
+        .bot-chat-input input {
+            flex: 1;
+            padding: 0.5rem;
+            background: #111;
+            border: 1px solid var(--neon-orange);
+            color: white;
+            border-radius: 5px 0 0 5px;
+        }
+        .bot-chat-input button {
+            padding: 0.5rem;
+            background: var(--neon-orange);
+            color: black;
+            border: none;
+            border-radius: 0 5px 5px 0;
+        }
+        /* ===== SCAMMER LABEL ===== */
+        .scam-label {
+            color: var(--scam-red);
+            font-weight: bold;
+            font-size: 0.8rem;
+            border: 1px solid var(--scam-red);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            display: inline-block;
+            margin-left: 0.5rem;
+            animation: scamBlink 1s infinite;
+        }
+        @keyframes scamBlink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- MAIN TITLE -->
+    <h1 class="main-title">YTC EDITING SPACE</h1>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="#videos">Videos</a>
+        <a href="#photos">Photos</a>
+        <a href="#admin">Admin</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- VIDEO SHOWCASE -->
+    <section id="videos" class="section-box">
+        <h2 class="section-title">🎬 Video Showcase</h2>
+        
+        <!-- YOUTUBE SHORT -->
+        <h3 style="color: var(--neon-orange); text-align: center;">YouTube Short</h3>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/G3Jqdvh7nm4" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <!-- INSTAGRAM REEL -->
+        <h3 style="color: var(--neon-orange); text-align: center; margin-top: 2rem;">Instagram Reel</h3>
+        <div class="video-container">
+            <iframe src="https://www.instagram.com/reel/_xcMsczYf/embed" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- PHOTO GALLERY & UPLOAD -->
+    <section id="photos" class="section-box">
+        <h2 class="section-title">📸 Photo Gallery</h2>
+        <div class="upload-area clickable" onclick="document.getElementById('file-upload').click()">
+            <p>Click to upload photos/videos</p>
+            <small>Supported formats: JPG, PNG, MP4</small>
+            <input type="file" id="file-upload" style="display: none;" accept="image/*, video/*">
+        </div>
+        
+        <!-- UPLOADED ITEMS WILL APPEAR HERE -->
+        <div id="uploaded-items" style="margin-top: 2rem;"></div>
+    </section>
+
+    <!-- ADMIN PANEL -->
+    <section id="admin" class="section-box">
+        <h2 class="section-title">🔒 Admin Panel</h2>
+        <div class="login-form">
+            <input type="email" placeholder="Admin Email" id="admin-email" value="yash9999.pin@gmail.com">
+            <input type="password" placeholder="Admin Password" id="admin-password" value="9450326308">
+            <button onclick="loginAdmin()" class="clickable">Login</button>
+        </div>
+        
+        <div class="admin-panel" id="admin-panel" style="display: none;">
+            <h3 style="color: var(--neon-orange); text-align: center;">Admin Controls</h3>
+            <div style="text-align: center;">
+                <button class="clickable" style="background: var(--neon-orange); color: black; border: none; padding: 0.8rem; margin: 0.5rem; border-radius: 5px;">Manage Users</button>
+                <button class="clickable" style="background: var(--neon-orange); color: black; border: none; padding: 0.8rem; margin: 0.5rem; border-radius: 5px;">View Analytics</button>
+                <button class="clickable" style="background: var(--neon-orange); color: black; border: none; padding: 0.8rem; margin: 0.5rem; border-radius: 5px;">Content Moderation</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section-box">
+        <h2 class="section-title">📩 Contact</h2>
+        <p style="text-align: center;">
+            Email: <a href="mailto:yash9999.pin@gmail.com" style="color: var(--neon-orange);">yash9999.pin@gmail.com</a>
+        </p>
+        <p style="text-align: center; margin-top: 1rem;">
+            <a href="https://www.instagram.com/editor_you_know?igsh=cW15Z3JzMHA2eWhx" target="_blank" style="color: var(--neon-orange); margin: 0 1rem;">Instagram</a>
+            <a href="https://youtube.com/@ytc1k?feature=shared" target="_blank" style="color: var(--neon-orange); margin: 0 1rem;">YouTube</a>
+        </p>
+    </section>
+
+    <!-- YTC BOT -->
+    <div class="ytc-bot" onclick="toggleBotChat()">
+        <span style="font-size: 24px;">🤖</span>
+    </div>
+    <div class="bot-chat" id="bot-chat">
+        <div class="bot-chat-messages" id="bot-messages">
+            <p><strong>YTC BOT:</strong> Hello! Ask me about video editing tips.</p>
+        </div>
+        <div class="bot-chat-input">
+            <input type="text" placeholder="Ask something..." id="bot-input">
+            <button onclick="sendBotMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // ===== ADMIN LOGIN =====
+        function loginAdmin() {
+            const email = document.getElementById('admin-email').value;
+            const password = document.getElementById('admin-password').value;
+            
+            if (email === "yash9999.pin@gmail.com" && password === "9450326308") {
+                document.getElementById('admin-panel').style.display = 'block';
+                alert("Admin login successful!");
+            } else {
+                alert("Invalid credentials! Try again.");
+            }
+        }
+        
+        // ===== FILE UPLOAD =====
+        document.getElementById('file-upload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const uploadedItems = document.getElementById('uploaded-items');
+                    
+                    if (file.type.includes('image')) {
+                        uploadedItems.innerHTML += `
+                            <div style="display: inline-block; margin: 0.5rem; border: 1px solid var(--neon-orange); border-radius: 5px; overflow: hidden;">
+                                <img src="${event.target.result}" width="200">
+                            </div>
+                        `;
+                    } else if (file.type.includes('video')) {
+                        uploadedItems.innerHTML += `
+                            <div style="display: inline-block; margin: 0.5rem; border: 1px solid var(--neon-orange); border-radius: 5px; overflow: hidden;">
+                                <video controls width="200">
+                                    <source src="${event.target.result}" type="${file.type}">
+                                </video>
+                            </div>
+                        `;
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // ===== YTC BOT =====
+        function toggleBotChat() {
+            const botChat = document.getElementById('bot-chat');
+            botChat.style.display = botChat.style.display === 'block' ? 'none' : 'block';
+        }
+        
+        function sendBotMessage() {
+            const input = document.getElementById('bot-input');
+            const message = input.value.trim();
+            
+            if (message) {
+                const botMessages = document.getElementById('bot-messages');
+                botMessages.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+                input.value = '';
+                
+                // Bot responses
+                setTimeout(() => {
+                    const responses = [
+                        "For transitions, try using easing in your editing software.",
+                        "Color grading tip: Always balance your whites first!",
+                        "60fps gives smoother slow-motion than 30fps.",
+                        "My favorite editing software is Premiere Pro.",
+                        "For cinematic look, try adding film grain.",
+                        "Always backup your project files!",
+                        "Keyboard shortcuts save tons of editing time."
+                    ];
+                    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                    
+                    botMessages.innerHTML += `<p><strong>YTC BOT:</strong> ${randomResponse}</p>`;
+                    botMessages.scrollTop = botMessages.scrollHeight;
+                }, 1000);
+            }
+        }
+        
+        // Allow pressing Enter in bot chat
+        document.getElementById('bot-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendBotMessage();
+            }
+        });
+    </script>
+</body>
+</html>
